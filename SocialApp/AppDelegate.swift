@@ -8,6 +8,9 @@
 
 import UIKit
 import Firebase
+import FBSDKCoreKit
+
+
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -20,7 +23,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         FirebaseApp.configure()
         
+        FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
+        
         return true
+    }
+    
+    @objc(application:openURL:sourceApplication:annotation:) func application(_ application: UIApplication, open url: URL, sourceApplication SourceApplication: String?, annotation Annotation: Any) -> Bool{
+        
+        return FBSDKApplicationDelegate.sharedInstance().application(application, open:url, sourceApplication:SourceApplication, annotation:Annotation)
+
     }
 
     func applicationWillResignActive(_ application: UIApplication) {

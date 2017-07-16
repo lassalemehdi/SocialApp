@@ -79,7 +79,7 @@
                                         <rect key="frame" x="0.0" y="36.5" width="283" height="17"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gLw-5b-cXu" customClass="FancyBtn" customModule="SocialApp" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="73" width="283" height="30"/>
@@ -87,6 +87,9 @@
                                         <state key="normal" title="Sign In">
                                             <color key="titleColor" red="0.96877185450000003" green="0.97603581620000002" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
+                                        <connections>
+                                            <action selector="signInBtnTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="cbM-MT-BiM"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -98,6 +101,9 @@
                                     <constraint firstAttribute="width" constant="150" id="YRF-aX-wXk"/>
                                 </constraints>
                                 <state key="normal" image="f"/>
+                                <connections>
+                                    <action selector="fbLooginBtnTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="VTr-Jd-e5F"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -118,10 +124,36 @@
                             <constraint firstItem="hNR-pG-dit" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="ysd-CU-Dt8"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="emailText" destination="mvB-09-ldB" id="udO-lx-RGp"/>
+                        <outlet property="pwdText" destination="8Ar-gY-Rjd" id="scu-ln-JxZ"/>
+                        <segue destination="I4i-bG-kwX" kind="show" identifier="ToFeed" id="DcB-qZ-qKn"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="117.59999999999999" y="122.78860569715144"/>
+        </scene>
+        <!--FeedVC-->
+        <scene sceneID="8zb-nT-CvE">
+            <objects>
+                <viewController id="I4i-bG-kwX" customClass="FeedVC" customModule="SocialApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="vT2-Mh-aUx"/>
+                        <viewControllerLayoutGuide type="bottom" id="rAE-lw-zt5"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="eL4-ga-Gnr">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="0.0" green="0.37647058820000001" blue="0.3921568627" alpha="1" colorSpace="calibratedRGB"/>
+                    </view>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="show" identifier="ToSignIn" id="eSs-RB-53k"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="HAu-xf-je2" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1012" y="123"/>
         </scene>
     </scenes>
     <resources>
